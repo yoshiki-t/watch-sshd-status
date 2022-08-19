@@ -16,7 +16,7 @@ while(true){
         $gzdata = gzencode($data, 9);
         file_put_contents($yesterdaySocketStatusLogPath.".gz", $gzdata);
         unlink($yesterdaySocketStatusLogPath);
-    };
+    }
 
     if(file_exists($yesterdayFail2banStatusLogPath))
     {
@@ -24,7 +24,7 @@ while(true){
         $gzdata = gzencode($data, 9);
         file_put_contents($yesterdayFail2banStatusLogPath.".gz", $gzdata);
         unlink($yesterdayFail2banStatusLogPath);
-    };
+    }
 
     echo exec('echo "[`date`]" >> /var/log/socket-status-`date "+%Y%m%d"`.log && ss -an | grep :22 >> /var/log/socket-status-`date "+%Y%m%d"`.log');
     echo exec('echo "[`date`]" >> /var/log/fail2ban-status-`date "+%Y%m%d"`.log && fail2ban-client status sshd >> /var/log/fail2ban-status-`date "+%Y%m%d"`.log');
