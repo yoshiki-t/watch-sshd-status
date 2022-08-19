@@ -32,6 +32,4 @@ while(true){
     echo date('Y/m/d H:i:s')." processed. \n";
 
     sleep($intervalSecond);
-
-	//test change
 }
